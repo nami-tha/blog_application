@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+<div class="container custom-container" style = "background:linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);">
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ">
+                <li><a href="/home" style="color: black; text-decoration: none;"><h1 style=" text-weight:bold;">MY BLOG</a></li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Profile
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/newpost">New Post</a>
+                        <a class="dropdown-item" href="/mypost">My Posts</a>
+                        <a class="dropdown-item" href="/signout">Sign Out</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container custom-container " style="max-width: 1250px;" style="color:#fff; background:linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);">
+            <br><br>
+            <h1 class="fw-bolder"> Make a new post.</h1>
+            <hr><br>
+            <div class="mb-3">
+                <h3><label for="exampleInputEmail1" class="form-label">Heading</label></h3>
+                <input type="text" class="form-control" id="exampleInputText" aria-describedby="emailHelp" name="title" style="background-color:#EB796F;">
+            </div>
+            <div class="form-group">
+                <h3><label for="exampleFormControlTextarea3">Content</label></h3>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" name="content" style="background-color: #EB796F;"></textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit" style="background-color: #EB796F; outline: none; color:black">
+    </form>
+</div>
+
+
+{% endblock %}
